@@ -18,41 +18,39 @@ class UserController extends BaseController
         return $this->responseOK($request->user());
     }
 
-    public function getUsergroup()
-    {
-        $data = Usergroup::all();
-        return $this->responseOK($data);
-    }
-
     public function Login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => ['required', 'string', 'email'],
+            'username' => ['string'],
+            'email' => ['string'],
             'password' => ['required', 'string'],
         ]);
 
         if ($validator->fails()) {
-            return $this->responseError('Admin Login failed', 422, $validator->errors());
+            return $this->responseError('These credentials do not match our records.', 302, $validator->errors());
         }
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'usergroupid' => '1']))
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'usergroupid' => '1']) || Auth::attempt(['username' => $request->username, 'password' => $request->password, 'usergroupid' => '1']))
         {
             $authenticated_user = Auth::user();
             $user = User::find($authenticated_user->id);
             $usergroup = Usergroup::find($authenticated_user->usergroupid);
          
             $response = [
+                'id' => $user->id,
                 'token' => $user->createToken('MyToken')->accessToken,
+                'username' => $user->username,
                 'full_name' => $user->first_name.' '.$user->last_name,
                 'usergroupid' => $user->usergroupid,
                 'level_user' => $usergroup->level,
             ];
+
             return $this->responseOK($response, 200);
 
-        }else if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'usergroupid' => '2'])){
+        }else if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'usergroupid' => '2']) || Auth::attempt(['username' => $request->username, 'password' => $request->password, 'usergroupid' => '2'])){
             print_r("login sebagai Agen");
         }else{
-            return $this->responseError('Wrong Email or Password please try again', 401);
+            return $this->responseError('These credentials do not match our records.', 302);
         }
     }
 
@@ -62,6 +60,7 @@ class UserController extends BaseController
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'no_hp' => ['required', 'string', 'min:10', 'max:13'],
+            'username' => ['required', 'string', 'min:8', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255','unique:users'],
             'password' => ['required', 'string','min:8','confirmed'],
         ]);
@@ -75,6 +74,7 @@ class UserController extends BaseController
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'no_hp' => $request->no_hp,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ];

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\UsergroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\API\UserController;
 |
 */
 // Route::get("users",[UserController::class, "getUser"]);
-Route::get("user_groups",[UserController::class, "getUsergroup"]);
+Route::get("user_groups",[UsergroupController::class, "getAllUserGroup"]);
 Route::get("login",[UserController::class, "login"]);
 
 

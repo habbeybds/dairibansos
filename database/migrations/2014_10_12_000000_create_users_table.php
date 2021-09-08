@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->foreignId("usergroupid");
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('no_hp');
             $table->timestamp('email_verified_at')->nullable();

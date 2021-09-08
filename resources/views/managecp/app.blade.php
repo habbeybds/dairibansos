@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Layanan Bantuan Sosial Sembako Kabupaten Dairi">
     <meta name="author" content="Dinas Komunikasi dan Informatika Kabupaten Dairi">
@@ -41,22 +41,10 @@
 
 </head>
 
-<body id="page-top" data-spy="scroll" data-target="#mainNav" data-offset="70">
+<body>
 
 
-    @include('layouts.navbars.navbar')
-    
-    @if($initial =='login')
-        @include('layouts.headers.login')
-        @yield('content_login')
-    @else
-        @include('layouts.headers.guest')
-        @yield('content')
-        @include('layouts.footers.guest')
-    @endif
-
-
-    
+    @yield('dashboard_content')
 
 
     <!-- Bootstrap core JS-->

@@ -207,6 +207,9 @@ li.nav-item.mx-0.mx-lg-1 {
     font-size: 12px;
 }
 
+li.nav-item.mx-0.mx-lg-1 a{
+    text-decoration: unset;
+}
 
 /* SACTION ABAOUT */
 
@@ -228,6 +231,7 @@ li.nav-item.mx-0.mx-lg-1 {
     font-size: 1rem;
     font-weight: 300;
 }
+
 .page-section#about .about-avatar {
     /* width: 40rem; */
     margin-top: 2rem;
@@ -336,6 +340,80 @@ a.main-button:hover {
     background-color: #573299;
 }
 
+/* Footers */
+.footer-bg {
+    background-color: white;
+    color: #2c3e50;
+}
+
+.footer a.btn.btn-outline-light.btn-social {
+    color: #2c3e50;
+    border: 3px solid;
+}
+
+.footer a.btn.btn-outline-light.btn-social:hover {
+    background-color: #ff5722;
+    color: white;
+    border: 3px solid #2c3e50;
+}
+
+/* SECTION LOGIN */
+.page-section#form-login {
+    padding: 6rem 0;
+    position: relative;
+    bottom: 300px;
+}
+
+.page-section#form-login .shape {
+    display: inline-block;
+    width: 100%;
+    background: white;
+    padding: 15px;
+    min-height: 300px;
+    box-shadow: 1px -1px 9px -1px rgb(0 0 0 / 47%);
+    -webkit-box-shadow: 1px -1px 9px -1px rgb(0 0 0 / 47%);
+    -moz-box-shadow: 1px -1px 9px -1px rgba(0,0,0,0.47);
+    border-radius: 20px;
+}
+
+.page-section#form-login .line-border {
+    border-bottom: 1px solid #bdb2b2;
+    margin: 15px 0;
+}
+
+.page-section#form-login .shape h2{
+    font-family: 'Poppines-SemiBold';
+    text-transform: uppercase;
+    color: #3c3a3a;
+    text-align: center;
+}
+
+.page-section#form-login button.btn-submit {
+    color: #fff;
+    background-color: #7d48de;
+    border-color: #7d48de;
+}
+.page-section#form-login button.btn-submit:hover {
+    color: #fff;
+    background-color: #6535bd;
+    border-color: #6535bd;
+}
+
+.page-section#form-login .form-check-input:checked {
+    background-color: #6535bd;
+    border-color: #6535bd;
+}
+
+.message-error {
+    color: #bd0808;
+    font-family: 'POPPINES-SEMIBOLD';
+    font-size: 14px;
+    display: none;
+}
+
+.show {
+    display: block;
+}
 @media screen and (max-width: 1320px) {
     .owl-carousel .owl-nav {
         display: none !important;
@@ -351,6 +429,12 @@ a.main-button:hover {
     .highlight-tagline {
         text-align: left;
         padding-bottom: 2rem;
+    }
+
+    .page-section#form-login {
+        padding: 6rem 0;
+        position: relative;
+        bottom: 360px;
     }
 }
 
@@ -377,5 +461,23 @@ a.main-button:hover {
     .about-right-img {
         text-align: center;
         margin-top: 2rem;
+    }
+
+    
+}
+
+@media (max-width: 767px) {
+    .page-section#form-login {
+        padding: 6rem 0;
+        position: relative;
+        bottom: 280px;
+    }
+}
+
+@media (max-width: 424px) {
+    .page-section#form-login {
+        padding: 6rem 0;
+        position: relative;
+        bottom: 240px;
     }
 }

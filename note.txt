@@ -9,16 +9,18 @@ git push -u origin main
 composer create-project laravel/laravel dairibansos "8.0.*" --prefer-dist
 
 Personal access client created successfully.
-Client ID: 9456ec51-f3da-4f65-9143-51b2888112a7
-Client secret: XMl8VFsfdQ2mPoTivGlzXHkAXBY26nRQIreYu2Qc
+Client ID: 9458f92d-78ad-4bb5-938f-de920f7112e7
+Client secret: iTlzyHTghpzvqxOeoj5DqrxB3QfHLaIbn5r6l4Pe
 Password grant client created successfully.
-Client ID: 9456ec52-0027-4cc7-b3ae-470ad9fc97ae
-Client secret: 2YyEvKVoKxm8Lcpw4VzLVVoEEVKioJej2biBwyje
+Client ID: 9458f92d-86d2-413f-8f75-51eaa9e3d64a
+Client secret: YCsqmDfthdZxrza4e5HTL76mHjgdjmLvHXs522zP
 
 
 php artisan migrate:refresh
 php artisan db:seed  
 php artisan migrate:refresh --seed
+
+php artisan passport:install
 
 https://laravel.com/docs/5.0/schema
 

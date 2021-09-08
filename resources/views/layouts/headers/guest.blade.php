@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="btn-learnmore">
-                        <a href="#"><span>SELENGKAPNYA</span></a>
+                        <a class="page-scroll" href="#about"><span>SELENGKAPNYA</span></a>
                     </div>
                 </div>
             </div>

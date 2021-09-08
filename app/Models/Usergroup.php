@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usergroup extends Model
 {
-    use HasFactory;
+    //use HasFactory;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'level',
-        'description',
-    ];
+    protected $table = 'usergroups';
+    protected $primaryKey = 'id';
+    protected $fillable = ['level','description'];
 
 }
