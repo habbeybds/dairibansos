@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Layanan Bantuan Sosial Sembako Kabupaten Dairi">
     <meta name="author" content="Dinas Komunikasi dan Informatika Kabupaten Dairi">
@@ -35,7 +35,6 @@
 
 
     <!-- javascript -->
-    <script src="{{ asset('assets') }}/vendor/jquery/dist/jquery.min.js"></script>
     <script src="{{ asset('assets') }}/vendor/jquery/dist/jquery-3.2.1.slim.min.js"></script>
     <script src="{{ asset('assets') }}/vendor/owlcarousel/js/owl.carousel.js"></script>
 
@@ -43,9 +42,10 @@
 
 <body id="page-top" data-spy="scroll" data-target="#mainNav" data-offset="70">
 
-
-    @include('layouts.navbars.navbar')
     
+    @include('layouts.navbars.navbar')
+  
+
     @if($initial =='login')
         @include('layouts.headers.login')
         @yield('content_login')

@@ -89,14 +89,14 @@
     font-family: var(--ff-primary);
     font-size: 12px;
     text-transform: uppercase;
-    background: transparent;
+    background: #ff7600;
     color: var(--clr-green-light);
 
 }
 
 .btn-masuk:hover {
     color: var(--clr-white);
-    background: var(--bs-purpple-rgb) !important;
+    background: var(--gray-dark) !important;
 }
 
 #mainNav.navbar-shrink {
@@ -414,6 +414,7 @@ a.main-button:hover {
 .show {
     display: block;
 }
+
 @media screen and (max-width: 1320px) {
     .owl-carousel .owl-nav {
         display: none !important;

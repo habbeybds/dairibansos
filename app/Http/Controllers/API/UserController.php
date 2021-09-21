@@ -21,8 +21,7 @@ class UserController extends BaseController
     public function Login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'username' => ['string'],
-            'email' => ['string'],
+            'username' => ['required','string'],
             'password' => ['required', 'string'],
         ]);
 
@@ -30,7 +29,7 @@ class UserController extends BaseController
             return $this->responseError('These credentials do not match our records.', 302, $validator->errors());
         }
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'usergroupid' => '1']) || Auth::attempt(['username' => $request->username, 'password' => $request->password, 'usergroupid' => '1']))
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password]))
         {
             $authenticated_user = Auth::user();
             $user = User::find($authenticated_user->id);
@@ -47,8 +46,6 @@ class UserController extends BaseController
 
             return $this->responseOK($response, 200);
 
-        }else if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'usergroupid' => '2']) || Auth::attempt(['username' => $request->username, 'password' => $request->password, 'usergroupid' => '2'])){
-            print_r("login sebagai Agen");
         }else{
             return $this->responseError('These credentials do not match our records.', 302);
         }

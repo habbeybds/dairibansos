@@ -15,7 +15,7 @@ $(".page-scroll").on("click", function (e) {
 });
 
 //Change Color Btn Masuk
-const btn = document.querySelector("#btn-masuk");
-btn.style.backgroundColor = "#ff7600";
+// const btn = document.querySelector("#btn-masuk");
+// btn.style.backgroundColor = "#ff7600";
 
 

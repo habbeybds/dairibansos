@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('no_hp');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('status', ['actived', 'cancelled'])->default('actived');
             $table->rememberToken();
             $table->timestamps();
         });

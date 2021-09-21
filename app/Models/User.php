@@ -21,9 +21,13 @@ class User extends Authenticatable
         'usergroupid',
         'first_name',
         'last_name',
+        'username',
         'no_hp',
         'email',
+        'no_hp',
         'password',
+        'remember_token',
+        'status'
     ];
 
     /**
@@ -44,4 +48,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getListDataAgen()
+    {
+        return $this->select('users.*', 'ug.level')->join('usergroups as ug', 'ug.id', '=', 'users.usergroupid')->where('users.usergroupid','2')->orderBy('users.id', 'DESC')->get();
+    }
+
 }

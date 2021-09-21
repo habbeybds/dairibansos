@@ -23,6 +23,7 @@ class BaseController extends Controller
         $response = [
             'code' => $code,
             'error' => $error,
+            'errorDetails' => []
         ];
 
         if (!empty($errorDetails)) {

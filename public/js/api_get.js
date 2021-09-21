@@ -2105,40 +2105,40 @@ process.umask = function() { return 0; };
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-$("body").on("submit", "#FormLogin", function (e) {
-  e.preventDefault();
-  var emailorusername = $("#exampleInputUsernameEmail").val();
-  var password = $("#exampleInputPassword1").val();
-  $("#message-error").html("");
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/login", {
-    params: {
-      email: emailorusername,
-      username: emailorusername,
-      password: password
-    }
-  }).then(function (response) {
-    var data_login = response.data.data;
-    var token = $('#token').val();
-    $.ajax({
-      url: "/data_login",
-      method: "POST",
-      data: {
-        "_token": token,
-        "action": "setDataLogin",
-        data: data_login
-      },
-      success: function success(data) {
-        window.location.href = "/dashboard";
-      }
-    });
-  })["catch"](function (error) {
-    console.log(error.response.data.error);
-    $("#message-error").addClass('show');
-    $("#message-error").html(error.response.data.error);
-  }).then(function () {// always executed
-  });
-});
+ // $("body").on("submit", "#FormLogin", function(e) {
+//     e.preventDefault();
+//     let emailorusername = $("#exampleInputUsernameEmail").val();
+//     let password = $("#exampleInputPassword1").val();
+//     $("#message-error").html("");
+//     // axios
+//     //     .get("/api/login", {
+//     //         params: {
+//     //             email: emailorusername,
+//     //             username:emailorusername,
+//     //             password: password
+//     //         }
+//     //     })
+//     //     .then(function(response) {
+//     //         var data_login = response.data.data;
+//     //         var token = $('#token').val();
+//     //         $.ajax({
+//     //             url:"/data_login",
+//     //             method:"POST",
+//     //             data:{"_token": token,"action":"setDataLogin", data:data_login},
+//     //             success:function(data){
+//     //                 window.location.href = "/dashboard";
+//     //             }
+//     //         });
+//     //     })
+//     //     .catch(function(error) {
+//     //         console.log(error.response.data.error);
+//     //         $("#message-error").addClass('show');
+//     //        $("#message-error").html(error.response.data.error);
+//     //     })
+//     //     .then(function() {
+//     //         // always executed
+//     //     });
+// });
 
 /***/ }),
 

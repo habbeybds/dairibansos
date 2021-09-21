@@ -15,8 +15,9 @@ class CreateDesasTable extends Migration
     {
         Schema::create('desas', function (Blueprint $table) {
             $table->id();
-            $table->string('desa');
-            $table->string('kecamatan');
+            $table->foreignId('kecamatanid');
+            $table->string('desa')->unique();;
+            $table->enum('status', ['actived', 'cancelled'])->default('actived');
             $table->timestamps();
         });
     }
